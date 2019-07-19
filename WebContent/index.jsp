@@ -29,21 +29,21 @@
 			<div id="ur_register"><a href="#" style="color:black;text-decoration:none">회원가입</a></div>
 		</div>		
 	</div>
-	<div style="margin:auto;width:60%;height:100%">
+	<div id="body_center">
 		<div id="g_line"></div>	
-		<div style="margin-top:15px;background-color:#E7E6E6;height:50px">
-			<div style="margin-left:5px;font-size:20px;float:left;line-height:50px">공지사항</div>					
-			<div style="margin-left:15px;float:left;line-height:50px;font-size:16px">내용</div>
-			<div style="float:right;margin-right:10px;line-height:50px"><a href="#">자세히보기</a></div>
+		<div id="notice">
+			<div id="nt_txt">공지사항</div>					
+			<div id="nt_content">내용</div>
+			<div id="nt_view"><a href="#">자세히보기</a></div>
 		</div>
-		<div style="margin-top:15px;height:200px;background-color:#7F7F7F">
+		<div id="newspanel">
 			<div><!-- 이미지 표시 영역 --></div>
-			<div style="width:30px;float:left;font-size:30px;line-height:200px;color:white"><</div>
-			<div style="width:30px;float:right;font-size:30px;line-height:200px;color:white">></div>
+			<div id="np_larrow"><</div>
+			<div id="np_rarrow">></div>
 		</div>
-		<div style="margin-top:20px;height:50px">
-			<div style="margin-left:5px;font-size:24px;float:left;line-height:50px;height:50px">VR 뉴스</div>
-			<div style="margin-right:10px;line-height:50px;text-align:right"><a href="#">더보기</a></div>
+		<div id="newsarea">
+			<div id="news_title">VR 뉴스</div>
+			<div id="news_more"><a href="#">더보기</a></div>
 		</div>
 		<div style="background-color:black;height:2px"></div>					
 

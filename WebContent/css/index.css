@@ -42,5 +42,64 @@
 	height:1px;
 }
 #body_center{
-	
+	margin:auto;
+	width:60%;
+	height:100%;
+}
+#notice{
+	margin-top:15px;
+	background-color:#E7E6E6;
+	height:50px;
+}
+#nt_txt{
+	margin-left:5px;
+	font-size:20px;
+	float:left;
+	line-height:50px;
+}
+#nt_content{
+	margin-left:15px;
+	float:left;
+	line-height:50px;
+	font-size:16px;
+}
+#nt_view{
+	float:right;
+	margin-right:10px;
+	line-height:50px;
+}
+#newspanel{
+	margin-top:15px;
+	height:200px;
+	background-color:#7F7F7F;
+}
+#np_larrow{
+	width:30px;
+	float:left;
+	font-size:30px;
+	line-height:200px;
+	color:white;
+}
+#np_rarrow{
+	width:30px;
+	float:right;
+	font-size:30px;
+	line-height:200px;
+	color:white;
+}
+#newsarea{
+	margin-top:20px;
+	height:50px;
+}
+#news_title{
+	margin-left:5px;
+	font-size:24px;
+	float:left;
+	line-height:50px;
+	height:50px;
+}
+#news_more{
+	margin-right:10px;
+	line-height:50px;
+	text-align:right;
 }
