@@ -38,7 +38,7 @@
 				{
 					String name = rs.getString(1);
 					String title = rs.getString(2);			
-					int num = rs.getInt(5);		
+					int num = rs.getInt(5);
 %>
 			<tr>
 				<td align="center"><%=num %></td>
