@@ -12,7 +12,7 @@
 	
 	String url = "jdbc:mysql://localhost:3306/jspexample";
 	String id = "root";
-	String pw = "as987656";
+	String pw = "1234!";
 	String SQL = "SELECT * from board";
 	PreparedStatement pstmt;
 	

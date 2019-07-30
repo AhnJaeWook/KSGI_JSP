@@ -1,9 +1,10 @@
-td.gallery {
+div.gallery {
   border: 1px solid #ccc;
   margin : auto;
+  width: 80%;
 }
 
-td.gallery:hover {
+div.gallery:hover {
   border: 1px solid #777;
 }
 
