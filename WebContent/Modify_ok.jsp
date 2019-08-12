@@ -1,13 +1,11 @@
 <%@page import="java.sql.*"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ page import="user.UserDAO" %>
 
 <%
 request.setCharacterEncoding("utf-8");
 
-String url = "jdbc:mysql://localhost:3306/jspexample";
-String id = "root";
-String pw = "as987656";
 String name = request.getParameter("name");
 String title = request.getParameter("title");
 String memo = request.getParameter("memo");
@@ -18,7 +16,9 @@ int num = Integer.parseInt(request.getParameter("num"));
 PreparedStatement pstmt;
 
 try{
-	Connection conn = DriverManager.getConnection(url,id,pw);
+	UserDAO userDAO = new UserDAO();
+	Connection conn = userDAO.GetConnection();
+	
 	String pwsql = "SELECT writepw from board where Num=" + num;
     
 	pstmt = conn.prepareStatement(pwsql);

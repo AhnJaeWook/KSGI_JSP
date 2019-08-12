@@ -1,5 +1,6 @@
 <%@ page import="java.sql.*"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page import="user.UserDAO" %>
 
 <!DOCTYPE html>
 <html>
@@ -8,11 +9,11 @@
 	</head>
 	<body>
 <%
-		String url = "jdbc:mysql://localhost:3306/ex";
-		String id = "root";
-		String pw = "1234!";
-		String sql = "SELECT * from table1";
-		
+
+		String sql = "SELECT * from board";
+
+		UserDAO userDAO = new UserDAO();
+		Connection conn = userDAO.GetConnection();
 %>
 		<table align="center" width="100%"  border="0">
 			<tr align="center">
@@ -22,11 +23,7 @@
 			</tr>
 			<tr><td height=0.1 style="background-color:black" colspan=3></td></tr>
   <%
-	try{	
-		    Class.forName("com.mysql.jdbc.Driver");
-		    
-			Connection conn = DriverManager.getConnection(url,id,pw);
-			
+	try{				
 			PreparedStatement pstmt = conn.prepareStatement(sql);
 			
 		    ResultSet rs = pstmt.executeQuery();    
@@ -38,7 +35,7 @@
 				{
 					String name = rs.getString(1);
 					String title = rs.getString(2);			
-					int num = rs.getInt(5);		
+					int num = rs.getInt(1);		
 %>
 			<tr>
 				<td align="center"><%=num %></td>

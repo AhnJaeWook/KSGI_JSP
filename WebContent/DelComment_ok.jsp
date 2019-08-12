@@ -1,11 +1,9 @@
  <%@page import="java.sql.*"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ page import="user.UserDAO" %>
     
 <%
-String url = "jdbc:mysql://localhost:3306/jspexample";
-String id = "root";
-String pw = "as987656";
 
 int c_no = Integer.parseInt(request.getParameter("c_no"));
 int num = Integer.parseInt(request.getParameter("num"));
@@ -17,7 +15,8 @@ PreparedStatement pstmt;
 
 
 try{
-	Connection conn = DriverManager.getConnection(url,id,pw);
+	UserDAO userDAO = new UserDAO();
+	Connection conn = userDAO.GetConnection();
 	
 	Statement stmt = conn.createStatement(); 
 	String sql = "SELECT c_pw FROM comment WHERE c_no=" + c_no; 
