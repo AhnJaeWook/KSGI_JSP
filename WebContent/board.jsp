@@ -35,7 +35,11 @@
 				{
 					String name = rs.getString(1);
 					String title = rs.getString(2);			
+<<<<<<< HEAD
 					int num = rs.getInt(1);		
+=======
+					int num = rs.getInt(5);
+>>>>>>> refs/remotes/origin/master
 %>
 			<tr>
 				<td align="center"><%=num %></td>

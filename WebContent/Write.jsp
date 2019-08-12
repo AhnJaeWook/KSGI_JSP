@@ -5,6 +5,10 @@
 <!DOCTYPE html>
 <html>
 	<head>
+		<style type="text/css">
+			html, body {height:100%;}		
+		</style>
+		<link rel= "stylesheet" type="text/css" href="http://localhost:8080/BBS/css/write.css"/>
 		<title>게시판 글쓰기</title>
 	</head>
 	<body>
@@ -20,18 +24,6 @@
 					return;
 				}
 				
-				if (!form.name.value)
-				{
-					alert("이름을 입력해주세요");
-					return;
-				}
-				
-				if (!form.writepw.value)
-				{
-					alert("비밀번호를 입력해주세요");
-					return;
-				}
-				
 				if (!form.title.value)
 				{
 					alert("제목을 입력해주세요");
@@ -41,25 +33,26 @@
 				form.submit();
 			}
 		</script>
-		
-		<form name="mwrite" method=post action="Write_ok.jsp">
-			<table align="center" border="0">			
+		<form style="width:60%;margin:auto" name="mwrite" method=post action="Write_ok.jsp">
+			<table align="center" border="0">
 				<tr>
-					<td width="100px">제목: </td>
-					<td><input style="width:100%" name="title" type="text"></td>
+					<td style="margin-bottom:5px;text-align: center;"><h1>커뮤니티</h1><td>
+				</tr>		
+				<tr>
+					<td><div id="g_line"></div><td>
 				</tr>
 				<tr>
-					<td>작성자: </td>
-					<td><input style="width:100%" name="name"  type="text"></td></tr>
+					<td><p style="margin-bottom:5px;">게시글 등록 페이지입니다</p></td>
+				</tr>
 				<tr>
-					<td>비밀번호: </td>
-					<td><input style="width:100%" name="writepw"  type="password"></td></tr>	
-				<tr>					
+					<td><input style="width:80%;" name="title" type="text" placeholder="제목을 입력해주세요"></td>
+				</tr>
+				<tr>
 				 	<td colspan=2>
-				 		<textarea name="memo" rows="25" cols="76" ></textarea>
+				 		<textarea name="memo" rows="30" cols="85" placeholder="내용을 입력해주세요"></textarea>
 					</td>
 				</tr>	
-				<tr align="center">
+				<tr align="right">
 					<td colspan=2>
 						<input type="button" value="작성" onclick="CheckMemo()">
 						<input type="button" value="취소" onclick="location.href='javascript:history.back()';">
