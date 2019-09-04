@@ -19,7 +19,11 @@
 			{
 				alert("필수 약관에 모두 동의하여 주십시오");
 			}
-
+			else
+			{
+				location.href='Confirm.jsp';
+			}
+			
 		}
 	</script>
 	<div style="margin:auto;width:90%;height:100px">

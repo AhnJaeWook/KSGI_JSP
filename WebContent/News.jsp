@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ page import="java.sql.*" %> 
+<%@ page import="user.UserDAO" %>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -7,89 +9,15 @@
 			html, body {height:100%;}
 		</style>
 		<link rel= "stylesheet" type="text/css" href="http://localhost:8090/BBS/css/news.css"/>
-		<title>Insert title here</title>
+		<link rel= "stylesheet" type="text/css" href="css/index.css"/>
+		<title>뉴스</title>
 	</head>
 	<body>
-	
-		<div style="width:50%;margin:auto">
-			<table style="width:100%;" border="0">
-				<tr>
-					<td><h1 style="margin-bottom:5px;">VR뉴스</h1></td>
-				</tr>		
-				<tr>
-					<td colspan=3><div id="g_line"></div></td>
-				</tr>
-				<tr>
-					<td>
-						<div class="gallery">
-							<a target="_blank" href="#">
-							    <img src="http://localhost:8090/BBS/image/chchnamdo.png" alt="Cinque Terre" width="300" height="200">
-							</a>
-							<div class="desc">
-								<h3>title</h3>
-								<p style="margin:0;">Add a description of the image here</p>
-							</div>
-						</div>
-					</td>
-					<td>
-						<div class="gallery">
-							<a target="_blank" href="#">
-							    <img src="http://localhost:8090/BBS/image/chchnamdo.png" alt="Cinque Terre" width="300" height="200">
-							</a>
-							<div class="desc">
-								<h3>title</h3>
-								<p style="margin:0;">Add a description of the image here</p>
-							</div>
-						</div>
-					</td>
-					<td>
-						<div class="gallery">
-							<a target="_blank" href="#">
-							    <img src="http://localhost:8090/BBS/image/chchnamdo.png" alt="Cinque Terre" width="300" height="200">
-							</a>
-							<div class="desc">
-								<h3>title</h3>
-								<p style="margin:0;">Add a description of the image here</p>
-							</div>
-						</div>
-					</td>
-				</tr>
-				<tr>
-					<td>
-						<div class="gallery">
-							<a target="_blank" href="#">
-							    <img src="http://localhost:8090/BBS/image/chchnamdo.png" alt="Cinque Terre" width="300" height="200">
-							</a>
-							<div class="desc">
-								<h3>title</h3>
-								<p style="margin:0;">Add a description of the image here</p>
-							</div>
-						</div>
-					</td>
-					<td>
-						<div class="gallery">
-							<a target="_blank" href="#">
-							    <img src="http://localhost:8090/BBS/image/chchnamdo.png" alt="Cinque Terre" width="300" height="200">
-							</a>
-							<div class="desc">
-								<h3>title</h3>
-								<p style="margin:0;">Add a description of the image here</p>
-							</div>
-						</div>
-					</td>
-					<td>
-						<div class="gallery">
-							<a target="_blank" href="#">
-							    <img src="http://localhost:8090/BBS/image/chchnamdo.png" alt="Cinque Terre" width="300" height="200">
-							</a>
-							<div class="desc">
-								<h3>title</h3>
-								<p style="margin:0;">Add a description of the image here</p>
-							</div>
-						</div>
-					</td>
-				</tr>
-			</table>
+		<%@include file="Header.jsp"%>	
+		<div style="width:70%;margin:auto">			
+			<div style="margin-top:10px;font-size:24px">VR뉴스</div>
+			<div style="border:1px solid black"></div>
+		<%@include file="NewsList.jsp"%>	
 		</div>
 	</body>
 </html>

@@ -1,30 +1,33 @@
 <%@page import="java.sql.*"%>
+<%@ page import="java.util.Date" %>
+<%@page import="java.text.SimpleDateFormat" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-
+<%@ page import="user.UserDAO" %>
 <%
 request.setCharacterEncoding("utf-8");
 
-String url = "jdbc:mysql://localhost:3306/jspexample";
-String id = "root";
-String pw = "as987656";
 int num = Integer.parseInt(request.getParameter("num"));
 String comment = request.getParameter("comment");
-String name = request.getParameter("name");
-String c_pw = request.getParameter("c_pw");
-String sql = "INSERT INTO comment (c_name,c_comment,c_memonum,c_pw) VALUES (?,?,?,?)" ;
+String name = (String) session.getAttribute("id");
+String sql = "INSERT INTO comment (c_name,c_comment,c_memonum,c_date) VALUES (?,?,?,?)" ;
+
+Date now = new Date();
+SimpleDateFormat sf = new SimpleDateFormat("yyyy-MM-dd");
+String date = sf.format(now);
 
 PreparedStatement pstmt;
 
 try{
-	Connection conn = DriverManager.getConnection(url,id,pw);
+	UserDAO userDAO = new UserDAO();
+	Connection conn = userDAO.GetConnection();
 	
 	pstmt = conn.prepareStatement(sql);
 
 	pstmt.setString(1, name);
 	pstmt.setString(2, comment);
 	pstmt.setInt(3, num);
-	pstmt.setString(4, c_pw);
+	pstmt.setString(4, date);
 
 	pstmt.execute();
 	
@@ -37,5 +40,5 @@ try{
 %>    
 
 <script language="javascript">
-location.href="View.jsp?num=<%=num %>";
+	location.href="View.jsp?num=<%=num %>";
 </script>

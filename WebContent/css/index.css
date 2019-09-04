@@ -6,6 +6,11 @@
 	display:flex;
 }
 
+#textset{
+	text-decoration:none;
+	color:black;
+}
+
 #tm_left{
 	text-align:left;
 	flex:1;
@@ -53,7 +58,7 @@
 }
 #body_center{
 	margin:auto;
-	width:60%;
+	width:800px;
 	height:100%;
 }
 #notice{
@@ -77,6 +82,8 @@
 	float:right;
 	margin-right:10px;
 	line-height:50px;
+	text-decoration:none;
+	color:black;
 }
 #newspanel{
 	margin-top:15px;
@@ -87,6 +94,9 @@
 }
 #bck_image{
 	background-image:url('../img/newspanel/np_1.png');
+	width:740px;
+	height:100%;
+	float:left;
 }
 #np_larrow{
 	width:30px;
@@ -119,8 +129,14 @@
 	margin-right:10px;
 	line-height:50px;
 	text-align:right;
+	text-decoration:none;
+	color:black;
 }
 #header{
 	width:100%;
 	margin-bottom:15px;
+}
+#bt_register{
+	color:black;
+	text-decoration:none;
 }

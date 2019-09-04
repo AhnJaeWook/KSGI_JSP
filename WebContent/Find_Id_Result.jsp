@@ -1,5 +1,5 @@
 <%@ page import="java.sql.*"%>
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
+<%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>    
 <%@ page import="user.UserDAO"%>    
 
@@ -33,7 +33,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Insert title here</title>
+<title>아이디 찾기</title>
 </head>
 <body>
 	<div style="margin:auto;width:70%">
@@ -45,7 +45,7 @@
 			<div style="background-color:#404040;width:46%;height:110px;float:left">			
 				<div style="text-align:center;line-height:110px;color:white;font-size:26px">아이디 찾기</div>
 			</div>
-			<a href="#">
+			<a href="Find_Pw.jsp">
 				<div style="border:3px solid #AFABAB;width:46%;height:110px;float:right">			
 					<div style="text-align:center;line-height:110px;font-size:26px">비밀번호 찾기</div>
 				</div>	

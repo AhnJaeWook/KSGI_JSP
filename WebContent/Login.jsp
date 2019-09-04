@@ -19,31 +19,31 @@
 %>
 
 <%
+	
     if(rs.next())
     {
     	String get_pw = rs.getString(2);	
     	
-    	if(get_pw.equals(usrpw))
+    	if(get_pw.equals(usrpw))    	
+    	{
+    		session.setAttribute("id",usrid); 
+    		//session.setAttribute("name", )
+%>
+<script type="text/javascript">
+	location.href="index.jsp";
+</script>	
+<%    		    		   	
+    	}
+    	else   		
     	{
 %>
-	<form name="form" method="post" action="index.jsp">
-		<input name="msg" type="hidden" value="<%=usrid%>">
-	</form>
+<script type="text/javascript">
+	alert('아이디나 비밀번호가 틀렸습니다.');
+	history.back(-1);
+</script>
 <%
     	}
-    	else
-    	{    		
-%>
-
-	<form name="form" method="post" action="l_Login.jsp">
-		<input name="msg" type="hidden" value="no">
-	</form>	
-	
-<%
-    	}	
+    		
     }
 %>
 
-<script type="text/javascript">
-	document.form.submit();
-</script>
