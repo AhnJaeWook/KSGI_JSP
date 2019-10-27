@@ -1,35 +1,58 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ page import="java.sql.*"%>
+<%@page import="java.util.Date" %>
+<%@page import="java.text.SimpleDateFormat" %>
+<%@ page import="user.UserDAO" %>
+<%@ page import="java.io.*" %>
 
 <%
 request.setCharacterEncoding("utf-8");
 
-String url = "jdbc:mysql://localhost:3306/ex";
-String id = "root";
-String pw = "1234!";
-String name = request.getParameter("name");
 String title = request.getParameter("title");
 String memo = request.getParameter("memo");
-String writepw = request.getParameter("writepw");
 
 PreparedStatement pstmt;
 
+Date now = new Date();
+
+SimpleDateFormat sf = new SimpleDateFormat("yyyy-MM-dd");
+
+String date = sf.format(now);
+
 try{  
-	Class.forName("com.mysql.jdbc.Driver");
+	UserDAO userDAO = new UserDAO();
+	Connection conn = userDAO.GetConnection();	
 	
-	Connection conn = DriverManager.getConnection(url,id,pw);
-	
-	String sql = "INSERT INTO table1 ( c1, c2) VALUES ( ?, ?)";
+	String sql = "INSERT INTO board ( b_name, b_title, b_content, b_date, b_attri) VALUES ( ?, ?, ?, ?, ?)";
 	pstmt = conn.prepareStatement(sql);
-
-	pstmt.setString(1, name);
+	
+	pstmt.setString(1, (String)session.getAttribute("id"));
 	pstmt.setString(2, title);
-	//pstmt.setString(3, memo);
-	//pstmt.setString(4, writepw);
-
+	pstmt.setString(3, memo);
+	pstmt.setString(4, date);	
+	pstmt.setString(5, "Normal");
+	
 	pstmt.execute();
 	
+	
+	sql = String.format("Select * from board where b_name='%s' and b_title='%s' and b_date='%s'", (String)session.getAttribute("id")
+			,title, date);
+	
+	
+	pstmt = conn.prepareStatement(sql);
+	ResultSet rs = pstmt.executeQuery();
+	
+	if(rs.last())
+	{
+		int no = rs.getInt(1);		
+%>
+		<script language="javascript">
+			location.href="View.jsp?num=<%=no%>";
+		</script>
+<%	
+	}
+	rs.close();
 	pstmt.close();	
 	conn.close();
 	
@@ -40,5 +63,5 @@ try{
 %>
 
 <script language="javascript">
-location.href="index.jsp";
+	//location.href="index.jsp";
 </script>

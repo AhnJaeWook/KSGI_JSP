@@ -1,14 +1,14 @@
 <%@page import="java.sql.*"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@page import="java.util.Date" %>
+<%@page import="java.text.SimpleDateFormat" %>
+<%@ page import="user.UserDAO" %>
 
 <%
 request.setCharacterEncoding("utf-8");
 
-String url = "jdbc:mysql://localhost:3306/jspexample";
-String id = "root";
-String pw = "as987656";
-String name = request.getParameter("name");
+String name = (String)session.getAttribute("id");
 String title = request.getParameter("title");
 String memo = request.getParameter("memo");
 String writepw = request.getParameter("writepw");
@@ -18,47 +18,32 @@ int num = Integer.parseInt(request.getParameter("num"));
 PreparedStatement pstmt;
 
 try{
-	Connection conn = DriverManager.getConnection(url,id,pw);
-	String pwsql = "SELECT writepw from board where Num=" + num;
-    
-	pstmt = conn.prepareStatement(pwsql);
-	
-	ResultSet rs = pstmt.executeQuery();
-	
-	if(rs.next())
-	{
-		dbpw = rs.getString(1);	
-	
-		if(dbpw.equals(writepw))
-		{
-			String sql = "UPDATE board SET Name=?, Title=?, Memo=? Where Num=" + num;
+	UserDAO userDAO = new UserDAO();
+	Connection conn = userDAO.GetConnection();	
 
-			pstmt = conn.prepareStatement(sql);
-		
-			pstmt.setString(1, name);
-			pstmt.setString(2, title);
-			pstmt.setString(3, memo);
-		
-			pstmt.execute();
-			
-			pstmt.close();			
-			conn.close();
-			rs.close();
-			
-		}
-		else
-		{
-			%>
-			<script language="javascript">
-			alert("비밀번호가 틀렸습니다.");
-			location.href="javascript:history.back()";
-			</script>
-			<%
-		}
+	Date now = new Date();
+
+	SimpleDateFormat sf = new SimpleDateFormat("yyyy-MM-dd");
+
+	String date = sf.format(now);			
+	
+	String sql = "UPDATE board SET b_name=?, b_title=?, b_content=?, b_date=? Where b_no=" + num;
+
+	pstmt = conn.prepareStatement(sql);
+
+	pstmt.setString(1, name);
+	pstmt.setString(2, title);
+	pstmt.setString(3, memo);
+	pstmt.setString(4, date);
+	
+	pstmt.execute();
+	
+	pstmt.close();			
+	conn.close();
+				
+	}catch(SQLException e){
+		e.printStackTrace();
 	}
-}catch(SQLException e){
-	e.printStackTrace();
-}
 %>
 <script language="javascript">
 location.href="javascript:history.go(-2)";
